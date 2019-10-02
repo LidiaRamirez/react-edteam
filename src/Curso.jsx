@@ -1,18 +1,14 @@
 import React from 'react'
-const curso = {
-  "title" : "React desde cero",
-  "image" : "https://drupal.ed.team/sites/default/files/styles/16_9_medium/public/imagenes-cdn-edteam/2019-04/React%20desde%20cero%20%281%29.png",
-  "price" : "50usd"
-}
+import PropTypes from 'prop-types'
 
-const Curso = () => (
+const Curso = ({title, image, price, profesor}) => (
   <article className="card">
     <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
-      <img src={curso.image} alt={curso.title}/>
+      <img src={image} alt={title}/>
     </div>
     <div className="card__data s-border s-radius-br s-radius-bl s-pxy-2">
       <h3 className="t5 s-mb-2 s-center">
-        {curso.title}
+        {title}
       </h3>
       <div className="s-mb-2 s-main-center">
         <div className="card__teacher s-cross-center">
@@ -21,14 +17,28 @@ const Curso = () => (
               <img src="https://api.ed.team/files/avatars/38118146-4b4a-4844-8959-157614e04cd1.jpg" alt=""/>
             </div>
           </div>
-          <span className="small">Alexys Lozada</span>
+          <span className="small">{profesor}</span>
         </div>
       </div>
       <div className="s-main-center">
-        <a className="button--ghost-alert button--tiny" href="google-com">{ `$ ${curso.price}` }</a>
+        <a className="button--ghost-alert button--tiny" href="google-com">{ `$ ${price} USD` }</a>
       </div>
     </div>
   </article>
 )
+
+Curso.propTypes = {
+  title: PropTypes.string,
+  image: PropTypes.string,
+  price: PropTypes.number,
+  profesor: PropTypes.string
+}
+
+Curso.defaultProps = {
+  title: "No se encontro título",
+  image: "https://www.elegantthemes.com/blog/wp-content/uploads/2016/03/500-internal-server-error-featured-image-1.png",
+  price: 0,
+  profesor: ""
+}
 
 export default Curso

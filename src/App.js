@@ -17,9 +17,15 @@ const App = () => (
     </div>
   </div>
   <div className="ed-grid m-grid-3 ">
-    <Curso />
-    <Curso />
-    <Curso />
+    <Curso 
+      title="React desde cero" 
+      image="https://drupal.ed.team/sites/default/files/styles/16_9_medium/public/imagenes-cdn-edteam/2019-04/React%20desde%20cero%20%281%29.png"
+      price= {20}
+      profesor="Alexys Lozada"
+    />
+      
+    <Curso 
+    />
   </div>
   
 </>
