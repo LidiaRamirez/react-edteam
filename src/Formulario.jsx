@@ -8,6 +8,21 @@ class Formulario extends Component {
       nombre : '',
       correo: ''
     }
+
+    this.changeName = this.changeName.bind(this);
+    this.changeEmail = this.changeEmail.bind(this);
+  }
+
+  changeName(e) {
+    this.setState({
+      nombre: e.target.value
+    })
+  }
+
+  changeEmail(e) {
+    this.setState({
+      correo: e.target.value
+    })
   }
 
   render() {
@@ -18,15 +33,25 @@ class Formulario extends Component {
           <div className="ed-grid m-grid-2">
             <div className="form__item">
               <label>Nombre completo</label>
+              {/* <input 
+                type="text" 
+                onChange={ e => { this.setState({nombre: e.target.value })}}
+              /> */}
               <input 
                 type="text" 
-                onChange={ e => { this.setState({nombre: e.target.value })}}/>
+                onChange={ this.changeName}
+              />
             </div>
             <div className="form__item">
               <label>Correo electrónico</label>
+              {/* <input 
+                type="email"
+                onChange = { e => { this.setState({ correo: e.target.value })}} 
+              /> */}
               <input 
                 type="email"
-                onChange = { e => { this.setState({ correo: e.target.value })}} />
+                onChange = {this.changeEmail} 
+              />
             </div>          
           </div>
           {/* <div className="form__item">
