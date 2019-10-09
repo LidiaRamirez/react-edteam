@@ -6,11 +6,13 @@ class Formulario extends Component {
     super(props)
     this.state = {
       nombre : '',
-      correo: ''
+      correo: '',
+      hora: `${new Date().getHours()}: ${new Date().getMinutes()}: ${new Date().getSeconds()}`,
     }
 
     this.changeName = this.changeName.bind(this);
     this.changeEmail = this.changeEmail.bind(this);
+    this.changeHours = this.changeHours.bind(this);
   }
 
   changeName(e) {
@@ -25,11 +27,18 @@ class Formulario extends Component {
     })
   }
 
+  changeHours() {
+    this.setState({
+      hora : `${new Date().getHours()}: ${new Date().getMinutes()}: ${new Date().getSeconds()}`
+    })
+  }
+
   render() {
     return ( 
       <div className="ed-grid">
-        <h1>Formulario</h1>
-        <form>
+        <h1>Formulario {this.props.name} </h1>
+        <p>{this.state.hora}</p>
+        <form id="form">
           <div className="ed-grid m-grid-2">
             <div className="form__item">
               <label>Nombre completo</label>
@@ -64,6 +73,24 @@ class Formulario extends Component {
         </div>
       </div>
     )
+  }
+
+  componentDidMount() {
+    let form = document.getElementById('form');
+    console.log(form);
+
+    this.intervalHours = setInterval(() => {
+      this.changeHours()
+    }, 1000)
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log(prevProps);
+    console.log(prevState)
+  }
+
+  componentWillUnmount() {
+    //clearInterval(this.intervalDate)
   }
 }
 
