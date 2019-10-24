@@ -5,11 +5,13 @@ import Formulario from "./Formulario";
 import CourseGrid from "./CourseGrid"
 
 const App = () => (
-  <>
-    <Banner />  
-    {/* <Formulario name="EDteam" /> */}
+  <Router>  
+    <Formulario name="EDteam" />
     <CourseGrid />
-  </>
+    <Route path="/" exact component={Banner} />
+    <Route path="/cursos" exact component={CourseGrid} />
+    {/* <Route path="/formulario" exact component={Formulario} />  */}
+  </Router>
 )
 
 export default App;
