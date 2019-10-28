@@ -36,8 +36,8 @@ const CourseGrid = () =>  (
   <div className="ed-grid m-grid-4">
     {cursos.map(c => 
       <Curso 
-        key={c.id } 
-        id = {c.id}
+        key={c.indice } 
+        id = {c.indice}
         title = {c.title}
         image = {c.image}
         price = {c.price}

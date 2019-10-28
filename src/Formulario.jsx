@@ -77,7 +77,7 @@ class Formulario extends Component {
 
   componentDidMount() {
     let form = document.getElementById('form');
-    console.log(form);
+    //console.log(form);
 
     this.intervalHours = setInterval(() => {
       this.changeHours()
@@ -85,8 +85,8 @@ class Formulario extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log(prevProps);
-    console.log(prevState)
+    /* console.log(prevProps);
+    console.log(prevState) */
   }
 
   componentWillUnmount() {

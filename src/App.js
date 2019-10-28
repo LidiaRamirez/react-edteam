@@ -5,9 +5,11 @@ import Formulario from "./Formulario";
 import CourseGrid from "./CourseGrid";
 import Course from './Course';
 import { BrowserRouter as Router, Route, Switch }  from 'react-router-dom';
+import MainMenu from './MainMenu';
 
 const App = () => (
   <Router>
+    <MainMenu />
     <Switch>
       <Route path="/" exact component={ Banner } />
       <Route path="/cursos/:id" exact component={ Course } />
@@ -19,8 +21,7 @@ const App = () => (
           <span>Página no encontrada</span>
         </div>
       ) } />
-    </Switch>
-    
+    </Switch>    
   </Router>
 )
 
