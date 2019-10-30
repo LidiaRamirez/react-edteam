@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 
-class Formulario extends Component {
+class Form extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      nombre : '',
-      correo: '',
-      hora: `${new Date().getHours()}: ${new Date().getMinutes()}: ${new Date().getSeconds()}`,
+      name : '',
+      email: '',
+      hour: `${new Date().getHours()}: ${new Date().getMinutes()}: ${new Date().getSeconds()}`,
     }
 
     this.changeName = this.changeName.bind(this);
@@ -17,19 +17,19 @@ class Formulario extends Component {
 
   changeName(e) {
     this.setState({
-      nombre: e.target.value
+      name: e.target.value
     })
   }
 
   changeEmail(e) {
     this.setState({
-      correo: e.target.value
+      email: e.target.value
     })
   }
 
   changeHours() {
     this.setState({
-      hora : `${new Date().getHours()}: ${new Date().getMinutes()}: ${new Date().getSeconds()}`
+      hour : `${new Date().getHours()}: ${new Date().getMinutes()}: ${new Date().getSeconds()}`
     })
   }
 
@@ -37,14 +37,14 @@ class Formulario extends Component {
     return ( 
       <div className="ed-grid">
         <h1>Formulario {this.props.name} </h1>
-        <p>{this.state.hora}</p>
+        <p>{this.state.hour}</p>
         <form id="form">
           <div className="ed-grid m-grid-2">
             <div className="form__item">
               <label>Nombre completo</label>
               {/* <input 
                 type="text" 
-                onChange={ e => { this.setState({nombre: e.target.value })}}
+                onChange={ e => { this.setState({name: e.target.value })}}
               /> */}
               <input 
                 type="text" 
@@ -55,7 +55,7 @@ class Formulario extends Component {
               <label>Correo electrónico</label>
               {/* <input 
                 type="email"
-                onChange = { e => { this.setState({ correo: e.target.value })}} 
+                onChange = { e => { this.setState({ email: e.target.value })}} 
               /> */}
               <input 
                 type="email"
@@ -68,15 +68,15 @@ class Formulario extends Component {
           </div> */}
         </form>
         <div>
-          <h2>{`Hola ${this.state.nombre}`}</h2>
-          <p>{`Tu correo es: ${this.state.correo}`}</p>
+          <h2>{`Hola ${this.state.name}`}</h2>
+          <p>{`Tu correo es: ${this.state.email}`}</p>
         </div>
       </div>
     )
   }
 
   componentDidMount() {
-    let form = document.getElementById('form');
+    //let form = document.getElementById('form');
     //console.log(form);
 
     this.intervalHours = setInterval(() => {
@@ -94,4 +94,4 @@ class Formulario extends Component {
   }
 }
 
-export default Formulario
+export default Form
