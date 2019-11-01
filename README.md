@@ -3,6 +3,14 @@
 ## Componente con funciones
 Si son presentacionales, no necesitan trabajar con el estado ciclo de vida. Y solo necesita props.
 
+## Componente de orden superior
+
+Es una función que recibe un componente lo procesa según la lógica y devuelve otro componente.
+Nos permite reutilizar lógica a lo largo de la aplicación en diversos componentes.
+Para nombrar los HOC (Higher-Order Components) se recomienda:
+- Que comience con la palabra with (estándar de nomeclatura) y seguido palabra de lo que hace, descriptivo
+- su extensión del archivo es .js
+
 ## Constructor
 - Iniciar el estado del componente
 - Enlazar eventos

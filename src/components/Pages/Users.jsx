@@ -1,6 +1,6 @@
 import React, {Component } from 'react'
-import UserCard from '../Molecules/UserCard'
 import axios from 'axios'
+import UserGrid from '../Organisms/UsersGrid'
 
 class Users extends Component {
 
@@ -33,21 +33,7 @@ class Users extends Component {
 
   render() {
     const { users } = this.state
-    return (
-      <div className="ed-grid">
-        <h1>Usuarios</h1>
-        <div className="ed-grid s-grid-2 m-grid-3 l-grid-4">
-          {
-             users.map( u => (
-             <UserCard 
-             key= {u.id} 
-             name={u.name} 
-             username={u.username} 
-             email = {u.email} />))
-          }
-        </div>
-      </div>
-    )
+    return <UserGrid users={ users }/>
   }
 }
 
