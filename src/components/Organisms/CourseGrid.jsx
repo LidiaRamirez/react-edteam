@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { Component } from 'react'
 import CourseCard from '../Molecules/CourseCard'
+import axios from 'axios'
 
-const courses = [
+/* const courses = [
   {
     id: 'c1',
     title: "React desde cero",
@@ -30,20 +31,40 @@ const courses = [
     price: 20,
     teacher: "Alvaro Felipe"
   }
-]
+] */
 
-const CourseGrid = () =>  (
-  <div className="ed-grid m-grid-4">
-    {courses.map(c => 
-      <CourseCard 
-        key={c.id } 
-        id = {c.id}
-        title = {c.title}
-        image = {c.image}
-        price = {c.price}
-        professor = {c.teacher}
-      />)}
-  </div>
-)
+class CourseGrid extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      responseCourses: [],
+    }
+  }
+
+  componentDidMount() {
+    axios.get('http://my-json-server.typicode.com/LidiaRamirez/json-cursos/cursos')
+    .then(response => {
+      this.setState({ responseCourses: response.data })
+    })
+  }
+
+  render() {
+    const { responseCourses } = this.state
+    return (
+      <div className="ed-grid m-grid-4">
+        {responseCourses.map(c => 
+          <CourseCard 
+            key={c.id } 
+            id = {c.id}
+            title = {c.title}
+            image = {c.image}
+            price = {c.price}
+            professor = {c.teacher}
+          />)}
+      </div>
+    )
+  }
+} 
 
 export default CourseGrid

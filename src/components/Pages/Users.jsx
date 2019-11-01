@@ -1,6 +1,6 @@
 import React, {Component } from 'react'
 import UserCard from '../Molecules/UserCard'
-import axios from "axios"
+import axios from 'axios'
 
 class Users extends Component {
 
