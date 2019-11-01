@@ -48,12 +48,8 @@ Realiza limpieza antes de que se desmote
 
 NavLink tiene la opción de la clase activo en la URL
 
-<!-- ### `npm run build`
+## Hooks
 
-Builds the app for production to the `build` folder.<br>
+Algunos vienen por defecto de react desde la version 16
 
-The build is minified and the filenames include the hashes.<br>
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!** -->
+- useState: permite usar el estado y poder modificarlo
