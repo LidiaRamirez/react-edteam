@@ -1,32 +1,37 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 const Course = ({ match }) => {
-  const [state, setState] = useState({
-      id: "c1",
-      title: "React desde cero",
-      image: "https://drupal.ed.team/sites/default/files/styles/16_9_medium/public/imagenes-cdn-edteam/2019-04/React%20desde%20cero%20%281%29.png",
-      price: 20,
-      teacher: "Alexys Lozada"
-  })
+  const [course, setCourse] = useState({})
+  const [comment, setComment] = useState('Sin comentarios')
 
-  const changeTitle = (text) => {
-    setState({
-      ...state,
-      title: text
-    })
+
+  useEffect(() => {
+    axios.get(`http://my-json-server.typicode.com/LidiaRamirez/json-cursos/cursos/${match.params.id}`)
+    .then(response => setCourse( response.data ))
+  }, [])
+
+  const myComment = e => {
+    setComment(e.target.value)
   }
   
   return (
     <div className="ed-grid m-grid-3">
       {
-        state 
+        course 
         ? (
-            <>
-              <h1 className="m-cols-3"> { state.title } </h1>
-              <img className="m-cols-1" src= { state.image } alt={ state.title }/>
-              <p className="m-cols-2">Profesor: { state.teacer }</p>
-              <button onClick = { changeTitle.bind(this, 'Otro titulo') }>Cambiar título</button>
-            </>
+            <div className="ed-grid">
+              <div>
+                <h1 className="m-cols-3"> { course.title } </h1>
+                <img className="m-cols-1" src= { course.image } alt={ course.title }/>
+                <p className="m-cols-2">Profesor: { course.teacher }</p>
+              </div>
+              <div className="ed-grid">
+                <h2>Escribe tu comentario</h2>
+                <input type="text" placeholder="Escribe..." onChange={myComment.bind(this)}/>
+                <p>{ comment }</p>
+              </div>
+            </div>
           ) 
         : <h1>El curso no existe</h1>
       }

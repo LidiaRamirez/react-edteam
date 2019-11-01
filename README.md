@@ -52,4 +52,5 @@ NavLink tiene la opción de la clase activo en la URL
 
 Algunos vienen por defecto de react desde la version 16
 
-- useState: permite usar el estado y poder modificarlo
+- useState: Permite usar el estado y poder modificarlo
+- useEffect: Se ejecuta cada vez que el componente se renderiza, es decir cuando recibe nuevas props o cambia su estado. Recibe un callback.
