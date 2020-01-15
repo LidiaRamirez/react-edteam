@@ -2,7 +2,19 @@
 
 
 ## Componente con funciones
-Si son presentacionales, no necesitan trabajar con el estado ciclo de vida. Y solo necesita props.
+Si son presentacionales, no necesitan trabajar con el estado ni ciclo de vida. Y solo necesita props.
+
+En llamado de componente
+~~~
+<Componente prop1="" prop2={//variable js } />
+~~~
+
+En componente
+~~~
+const Componente = props => (
+  <h1>{props.prop1}</h1>
+)
+~~~
 
 ## Componente de orden superior
 
