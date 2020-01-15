@@ -73,25 +73,41 @@ Luego llamarlo en el evento por ejemplo
 
 
 ## ComponentWillMount
+Hacer logica antes de que se renderice
 - Modificar el estado
 - No debe realizar llamados a APIS
 - No realizar suscripción a eventos
 
-Hasta acá no se muestra componente
+Hasta acá no se muestra componente.
+* Ya no existe, actualmente se hace métodos y se llaman en el constructor
 
 ## Render (UI Component)
+Segundo método que se ejecuta
 - Debe ser una función pura
 - No debe modificar el estado
+- Utiliza el return
 
 ## ComponentDidMount
+Hace referencia a lo que puede pasar con el componente después de que se haya montado y ya puedo trabajar con el DOM
 - Se puede llamar API's
 - Realizar suscripciones a eventos
 - Modificar estado
+
+# * Fase de Actualización
+Un componente se puede actualizar cuando pasa:
+- new props
+- setState()
+- forceUpdate()
+
+## ComponentDidUpdate
+Se utiliza en fase de actualización
+Tiene dos parametros uno es prevProps (propiedades anterior) y prevState (propiedades nuevas) 
 
 ## ComponentWillReceiveProps (nextProps)
 - Realizar cambios en los estados basado en las nuevas props
 
 ## ComponentWillUnmount
+Desmontaje de componente
 - Dejar de escuchar eventos
 - Desuscribirse de un websockets
 - Cancelar peticiones HTTP
