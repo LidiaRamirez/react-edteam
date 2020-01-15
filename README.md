@@ -1,5 +1,21 @@
 # REACT 
 
+## Estado
+Hace referencia a lo que se necesita de información para el componente que vaya cambiando a medida que un evento suceda tanto en la interfaz
+
+~~~
+contructor(props) {
+  super(props)
+  this.state = {
+    variable: 'valor1',
+    variable2: 'valor2'
+  }
+}
+// componente
+<h2>${this.state.variable1}</h2>
+~~~
+
+
 ## Componente con funciones
 Si son presentacionales, no necesitan trabajar con el estado ciclo de vida. Y solo necesita props.
 
