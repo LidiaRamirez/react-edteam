@@ -1,23 +1,5 @@
 # REACT 
 
-## Estado
-Hace referencia a lo que se necesita de información para el componente que vaya cambiando a medida que un evento suceda tanto en la interfaz
-
-~~~
-contructor(props) {
-  super(props)
-  this.state = {
-    variable: 'valor1',
-    variable2: 'valor2'
-  }
-}
-// componente
-<h2>${this.state.variable1}</h2>
-// metodo para cambiar el estado. Ej:
-<input type="text" onInput={ (e) => this.setState({variable1: e.target.value}) } />
-
-~~~
-
 
 ## Componente con funciones
 Si son presentacionales, no necesitan trabajar con el estado ciclo de vida. Y solo necesita props.
@@ -34,6 +16,49 @@ Para nombrar los HOC (Higher-Order Components) se recomienda:
 - Iniciar el estado del componente
 - Enlazar eventos
 - Setear variables globales
+
+## Estado
+Hace referencia a lo que se necesita de información para el componente que vaya cambiando a medida que un evento suceda tanto en la interfaz
+
+~~~
+contructor(props) {
+  super(props)
+  this.state = {
+    variable: 'valor1',
+    variable2: 'valor2'
+  }
+}
+// componente
+<h2>${this.state.variable1}</h2>
+// metodo para cambiar el estado. Ej:
+<input type="text" onInput={ (e) => this.setState({variable1: e.target.value}) } />
+~~~
+
+## Métodos
+
+Primero se debe hacer un binding
+~~~
+constructor(props) {
+  this.metodo = this.metodo.bind(this)
+}
+~~~
+
+Luego declarar el método antes del render
+
+~~~
+metodo(e) { // codigo }
+
+render() {
+  return();
+}
+~~~
+
+Luego llamarlo en el evento por ejemplo
+
+~~~
+<input onChange={this.metodo} />
+~~~
+
 
 ## ComponentWillMount
 - Modificar el estado
