@@ -13,6 +13,9 @@ contructor(props) {
 }
 // componente
 <h2>${this.state.variable1}</h2>
+// metodo para cambiar el estado. Ej:
+<input type="text" onInput={ (e) => this.setState({variable1: e.target.value}) } />
+
 ~~~
 
 
